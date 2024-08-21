@@ -1,19 +1,17 @@
 const express = require('express')
 const dbConnect = require('../database/config')
-require('../database/config')
-const { getAllSuppliers, createSupplier, putSupplier, deleteSupplier } = require('../controller/suppliersController');
+const { getAllSuppliers, createSupplier, putSupplier, deleteSupplier } = require('../controller/suppliersController')
 
 class Server {
-
-    constructor(){
+    constructor() {
         this.app = express()
-        this.port = process.env.PORT || 3000
+        this.port = process.env.PORT || 3001
+        this.host = process.env.HOST || '127.0.0.1'
+        this.pathSupplier = '/api/exportation'
+
         this.listen()
         this.dbConecction()
-        this.pathSupplier= '/api/exportation'
         this.route()
-        
-        
     }
 
     async dbConecction() {
@@ -22,15 +20,15 @@ class Server {
 
     route() {
         this.app.use(express.json())
-        this.app.get(this.pathSupplier,getAllSuppliers)
-        this.app.post(this.pathSupplier,createSupplier)
-        this.app.put(this.pathSupplier, putSupplier)
-        this.app.delete(this.pathSupplier+'/:id',deleteSupplier)
+        this.app.get(this.pathSupplier, getAllSuppliers)
+        this.app.post(this.pathSupplier, createSupplier)
+        this.app.put(this.pathSupplier + '/:id', putSupplier)
+        this.app.delete(this.pathSupplier + '/:id', deleteSupplier)
     }
 
-    listen(){
-        this.app.listen(process.env.PORT, () => {
-            console.log(`Server is running on port ${this.port}`)
+    listen() {
+        this.app.listen(this.port, this.host, () => {
+            console.log(`The server is running at http://${this.host}:${this.port}`)
         })
     }
 }

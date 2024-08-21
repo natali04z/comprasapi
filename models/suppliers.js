@@ -6,7 +6,7 @@ const supplierSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    contact: {
+    contact_number: {
         type: String,
         required: true
     },
@@ -19,7 +19,7 @@ const supplierSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
-    phone: {
+    personal_phone: {
         type: String,
         required: true
     },
@@ -29,9 +29,8 @@ const supplierSchema = new mongoose.Schema({
         default: 'active'
     }
 }, {
-    timestamps: true
-});
+})
 
-const Supplier = mongoose.model('Supplier', supplierSchema);
+const Supplier = mongoose.model('Supplier', supplierSchema)
 
 module.exports = Supplier;
