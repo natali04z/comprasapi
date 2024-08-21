@@ -5,8 +5,8 @@ const { getAllSuppliers, createSupplier, putSupplier, deleteSupplier } = require
 class Server {
     constructor() {
         this.app = express()
-        this.listen()
         this.pathSupplier = '/api/supplier'
+        this.listen()
 
         this.dbConecction()
         this.route()
