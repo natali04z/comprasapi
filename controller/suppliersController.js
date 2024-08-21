@@ -1,16 +1,5 @@
 const Supplier = require('../models/suppliers');
 
-// Crear un nuevo proveedor
-const createSupplier = async (req, res) => {
-    try {
-        const newSupplier = new Supplier(req.body);
-        await newSupplier.save();
-        res.status(201).json(newSupplier);
-    } catch (error) {
-        res.status(400).json({ message: error.message });
-    }
-};
-
 // Obtener todos los proveedores
 const getAllSuppliers = async (req, res) => {
     try {
@@ -20,6 +9,17 @@ const getAllSuppliers = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+// Crear un nuevo proveedor
+const postSupplier = async (req, res) => {
+    try {
+        const newSupplier = new Supplier(req.body);
+        await newSupplier.save();
+        res.status(201).json(newSupplier);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+};
+
 
 const putSupplier = async (req, res) => {
     try {
@@ -40,8 +40,8 @@ const deleteSupplier = async (req, res) => {
 };
 
 module.exports = {
-    createSupplier,
     getAllSuppliers,
+    postSupplier,
     putSupplier,
     deleteSupplier
 };

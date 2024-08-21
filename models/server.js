@@ -1,6 +1,6 @@
 const express = require('express')
 const dbConnect = require('../database/config')
-const { getAllSuppliers, createSupplier, putSupplier, deleteSupplier } = require('../controller/suppliersController')
+const { getAllSuppliers, postSupplier, putSupplier, deleteSupplier } = require('../controller/suppliersController')
 
 class Server {
     constructor() {
@@ -19,7 +19,7 @@ class Server {
     route() {
         this.app.use(express.json())
         this.app.get(this.pathSupplier, getAllSuppliers)
-        this.app.post(this.pathSupplier, createSupplier)
+        this.app.post(this.pathSupplier, postSupplier)
         this.app.put(this.pathSupplier + '/:id', putSupplier)
         this.app.delete(this.pathSupplier + '/:id', deleteSupplier)
     }
