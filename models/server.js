@@ -5,11 +5,9 @@ const { getAllSuppliers, createSupplier, putSupplier, deleteSupplier } = require
 class Server {
     constructor() {
         this.app = express()
-        this.port = process.env.PORT || 3001
-        this.host = process.env.HOST || '127.0.0.1'
-        this.pathSupplier = '/api/exportation'
-
         this.listen()
+        this.pathSupplier = '/api/supplier'
+
         this.dbConecction()
         this.route()
     }
@@ -27,8 +25,9 @@ class Server {
     }
 
     listen() {
-        this.app.listen(this.port, this.host, () => {
-            console.log(`The server is running at http://${this.host}:${this.port}`)
+        this.app.listen(process.env.PORT, () => {
+            console.log('Server is running')
+
         })
     }
 }
