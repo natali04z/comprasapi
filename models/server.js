@@ -1,14 +1,17 @@
-const express = require('express')
-const dbConnect = require('../database/config')
-const { getAllSuppliers, postSupplier, putSupplier, deleteSupplier } = require('../controller/suppliersController')
+import express, {json} from 'express'
+import dbConnect from '../database/config.js'
+import '../database/config.js'
+import providerRouter from '../routes/providerRoute.js'
+import productRouter from '../routes/productsRoute.js'
+import cors from 'cors'
 
 class Server {
     constructor() {
         this.app = express()
-        this.pathSupplier = '/api/supplier'
         this.listen()
-
         this.dbConecction()
+        this.pathProvider = '/api/provider'
+        this.pathProduct = '/api/product'
         this.route()
     }
 
@@ -17,11 +20,11 @@ class Server {
     }
 
     route() {
-        this.app.use(express.json())
-        this.app.get(this.pathSupplier, getAllSuppliers)
-        this.app.post(this.pathSupplier, postSupplier)
-        this.app.put(this.pathSupplier + '/:id', putSupplier)
-        this.app.delete(this.pathSupplier + '/:id', deleteSupplier)
+        this.app.use(json())
+        this.app.use(cors())
+        this.app.use(this.pathProvider, providerRouter)
+        this.app.use(this.pathProduct, productRouter)
+
     }
 
     listen() {
@@ -32,4 +35,4 @@ class Server {
     }
 }
 
-module.exports = Server
+export default Server
