@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provider Management</title>
+</head>
+<body onload="listProviders()">
+
+    <!-- Section to List Providers -->
+    <h2>Provider List</h2>
+    <table border="1" align="center">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Contact Number</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>Personal Phone</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="providersTableBody">
+            <!-- Providers will be listed here -->
+        </tbody>
+    </table>
+
+    <!-- Section to Create or Edit Provider -->
+    <h2 id="formTitle">Create Provider</h2>
+    <form id="providerForm">
+        Name: <input type="text" id="name"><br><br>
+        Contact Number: <input type="text" id="contactNumber"><br><br>
+        Address: <input type="text" id="address"><br><br>
+        Email: <input type="text" id="email"><br><br>
+        Personal Phone: <input type="text" id="personalPhone"><br><br>
+        Status: <input type="text" id="status"><br><br>
+        <button type="button" id="submitButton" onclick="createProvider()">Create</button>
+    </form>
+
+    <!-- Section to Edit Provider -->
+    <h2 id="editFormTitle" style="display:none;">Edit Provider</h2>
+    <form id="editProviderForm" style="display:none;">
+        Name: <input type="text" id="editName"><br><br>
+        Contact Number: <input type="text" id="editContactNumber"><br><br>
+        Address: <input type="text" id="editAddress"><br><br>
+        Email: <input type="text" id="editEmail"><br><br>
+        Personal Phone: <input type="text" id="editPersonalPhone"><br><br>
+        Status: <input type="text" id="editStatus"><br><br>
+        <button type="button" id="editSubmitButton" onclick="updateProvider()">Update</button>
+    </form>
+
+    <script src="../public/js/provider.js"></script> <!-- Incluye el archivo JS -->
+</body>
+</html>

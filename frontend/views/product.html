@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>
+</head>
+<body onload="listProducts()">
+
+    <!-- Section to List Products -->
+    <h2>Product List</h2>
+    <table border="1" align="center">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Minimum Stock</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="productsTableBody">
+            <!-- Products will be listed here -->
+        </tbody>
+    </table>
+
+    <!-- Section to Create or Edit Product -->
+    <h2 id="formTitle">Create Product</h2>
+    <form id="productForm">
+        <label>Name:</label><input type="text" id="createName"><br><br>
+        <label>Category:</label><input type="text" id="createCategory"><br><br>
+        <label>Price:</label><input type="text" id="createPrice"><br><br>
+        <label>Stock:</label><input type="text" id="createStock"><br><br>
+        <label>Minimum Stock:</label><input type="text" id="createMinimumStock"><br><br>
+        <button type="button" id="submitButton" onclick="createProduct()">Create</button>
+    </form>
+
+    <!-- Section to Edit Product -->
+    <form id="editProductForm" style="display:none;">
+        <label>Name:</label><input type="text" id="editName"><br><br>
+        <label>Category:</label><input type="text" id="editCategory"><br><br>
+        <label>Price:</label><input type="text" id="editPrice"><br><br>
+        <label>Stock:</label><input type="text" id="editStock"><br><br>
+        <label>Minimum Stock:</label><input type="text" id="editMinimumStock"><br><br>
+        <button type="button" id="editSubmitButton" onclick="updateProduct()">Update</button>
+    </form>
+
+    <script src="../public/js/product.js"></script> <!-- Incluye el archivo JS -->
+</body>
+</html>
