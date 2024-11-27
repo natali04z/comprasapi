@@ -29,7 +29,7 @@ export async function postProvider(req, res) {
     try {
         const newProvider = new Provider({ name, contact_number, address, email, personal_phone, status });
         await newProvider.save();
-        res.status(201).json(newProvider);
+        res.status(200).json(newProvider);
     } catch (error) {
         msg = 'Error creating provider';
         res.status(500).json({ message: msg });
