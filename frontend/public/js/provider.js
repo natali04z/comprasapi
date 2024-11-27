@@ -1,4 +1,4 @@
-const url = 'http://localhost:3001/api/provider';
+const url = 'http://localhost:3003/api/provider';
 
 // Function to list all providers
 const listProviders = async () => {

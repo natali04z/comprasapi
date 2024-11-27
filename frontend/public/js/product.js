@@ -1,4 +1,4 @@
-const url = 'http://localhost:3001/api/product';
+const url = 'http://localhost:3003/api/product';
 
 // Función para listar todos los productos
 const listProducts = async () => {
